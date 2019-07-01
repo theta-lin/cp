@@ -58,7 +58,7 @@
 即其奇偶性不变
 
 ## 参考资料
-\[ref0\]: https://www.acwing.com/solution/acwing/content/847/16
+\[ref0\]: https://www.acwing.com/solution/AcWing/content/847/
 
 [src]: https://www.acwing.com/problem/content/description/110/
 [n*n]: https://latex.codecogs.com/svg.latex?n%5Ctimes%20n
@@ -71,4 +71,4 @@
 [a+b]: https://latex.codecogs.com/svg.latex?a+b
 [a,b]: https://latex.codecogs.com/svg.latex?a%2Cb
 [a-b]: https://latex.codecogs.com/svg.latex?a-b
-[ref0]: https://www.acwing.com/solution/acwing/content/847/16
+[ref0]: https://www.acwing.com/solution/AcWing/content/847/
