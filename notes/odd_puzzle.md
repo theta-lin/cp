@@ -41,8 +41,8 @@
 
 1 2 8 6 **0** 3 7 9 4 ==> 1 **0** 8 6 2 3 7 9 4  
 &nbsp;&nbsp;&nbsp;^--**I**-**I**--^
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ^--**I**-**I**--^  
 此时我们可以看出，题目中![n][n]是奇数其实别有深意，因为此时如果将0上下移动，在一维数组中就相当于将与其交换的那个数向前（向后）跳过了偶数个数。
 
