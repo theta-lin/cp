@@ -15,11 +15,11 @@
 
 具体过程：  
 假设我们的局面如下  
-1   2 **0**
-8   6   3
-7   9   4
-==> 1 2 **0** 8 6 3 7 9 4     将其排成一维  
-==> 1 2 8 6 3 7 9 4       将0忽略  
+1   2 **0**  
+8   6   3  
+7   9   4  
+==> 1 2 **0** 8 6 3 7 9 4          将其排成一维  
+==> 1 2 8 6 3 7 9 4                     将0忽略  
 ==> 计算这个一维数组中的逆序对个数， 判断奇偶性  
     若所给的两个局面的逆序对个数的奇偶性相同，则可以相互转化，反之不行
 
@@ -31,7 +31,7 @@
 7     9     4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  7     9     4
 
 1 2 8 6 **0** 3 7 9 4 ==> 1 2 8 **0** 6 3 7 9 4  
-此时如果将0忽略，对逆序对个数根本没有影响
+此时如果将0忽略，对逆序对个数根本没有影响。
 
 那么上下移动呢？  
 1     2     8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  1   **0**   8  
@@ -42,10 +42,29 @@
 &nbsp;&nbsp;&nbsp;^--**I**-**I**--^
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-^--**I**-**I**--^
+^--**I**-**I**--^  
+此时我们可以看出，题目中![n][n]是奇数其实别有深意，因为此时如果将0上下移动，在一维数组中就相当于将与其交换的那个数向前（向后）跳过了偶数个数。
+
+为了证明上下移动不会改变逆序对个数的奇偶性，我们先假设将元素![x][x]向上（下）移动至![x'][x']。
+设![x][x]与![x'][x']之间的元素为  
+![A_{1}, A_{2},...,A{a},B_{1},B_{2},...,B_{b}][A_{1}, A_{2},...,A{a},B_{1},B_{2},...,B_{b}]  
+其中![A_{i}&lt;x,B_{j}&gt;x][A_{i}&lt;x,B_{j}&gt;x]  
+此时因为跳过了偶数个数，则![a+b][a+b]为偶数  
+即![a,b][a,b]同奇偶  
+所以![a-b][a-b]为偶数  
+因为移动后与![x][x]成逆序对的元素增加（向上）或减少（向下）了![a-b][a-b]  
+所以总的逆序对数增加（减少）了偶数个  
+即其奇偶性不变  
 
 [src]: https://www.acwing.com/problem/content/description/110/
 [n*n]: https://latex.codecogs.com/svg.latex?n%5Ctimes%20n
 [n]: https://latex.codecogs.com/svg.latex?n
 [1...n^2-1]: https://latex.codecogs.com/svg.latex?1...n%5E2-1
+[x]: https://latex.codecogs.com/svg.latex?x
+[x']: https://latex.codecogs.com/svg.latex?x%27
+[A_{1}, A_{2},...,A{a},B_{1},B_{2},...,B_{b}]: https://latex.codecogs.com/svg.latex?A_%7B1%7D%2C%20A_%7B2%7D%2C...%2CA%7Ba%7D%2CB_%7B1%7D%2CB_%7B2%7D%2C...%2CB_%7Bb%7D
+[A_{i}&lt;x,B_{j}&gt;x]: https://latex.codecogs.com/svg.latex?A_%7Bi%7D%3Cx%2CB_%7Bj%7D%3Ex
+[a+b]: https://latex.codecogs.com/svg.latex?a+b
+[a,b]: https://latex.codecogs.com/svg.latex?a%2Cb
+[a-b]: https://latex.codecogs.com/svg.latex?a-b
 [ref0]: https://www.acwing.com/solution/acwing/content/847/16
