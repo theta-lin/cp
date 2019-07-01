@@ -14,7 +14,7 @@
 所有逆序对个数为奇数的都能相互转化，为偶数的也是。
 
 [src]: https://www.acwing.com/problem/content/description/110/
-[n*n]: https://latex.codecogs.com/svg.download?n%5Ctimes%20n
-[n]: https://latex.codecogs.com/svg.download?n
-[1...n^2-1]: https://latex.codecogs.com/svg.download?1...n%5E2-1
+[n*n]: https://latex.codecogs.com/svg.latex?n%5Ctimes%20n
+[n]: https://latex.codecogs.com/svg.latex?n
+[1...n^2-1]: https://latex.codecogs.com/svg.latex?1...n%5E2-1
 [ref0]: https://www.acwing.com/solution/acwing/content/847/
