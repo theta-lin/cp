@@ -23,9 +23,10 @@
 ==> 计算这个一维数组中的逆序对个数， 判断奇偶性  
     若所给的两个局面的逆序对个数的奇偶性相同，则可以相互转化，反之不行
 
+## 证明
 那么为什么无论上下左右移动，奇偶性都不会变化呢？
 
-我们先考虑左右移动：  
+### 我们先考虑左右移动：  
 1     2     8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  1     2     8  
 6   **0**   3 ==>                                 **0**   6     3  
 7     9     4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  7     9     4
@@ -33,7 +34,7 @@
 1 2 8 6 **0** 3 7 9 4 ==> 1 2 8 **0** 6 3 7 9 4  
 此时如果将0忽略，对逆序对个数根本没有影响。
 
-那么上下移动呢？  
+### 那么上下移动呢？  
 1     2     8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  1   **0**   8  
 6   **0**   3 ==>                                   6     2     3  
 7     9     4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  7     9     4
@@ -54,7 +55,10 @@
 所以![a-b][a-b]为偶数  
 因为移动后与![x][x]成逆序对的元素增加（向上）或减少（向下）了![a-b][a-b]  
 所以总的逆序对数增加（减少）了偶数个  
-即其奇偶性不变  
+即其奇偶性不变
+
+## 参考资料
+\[ref0\]: https://www.acwing.com/solution/acwing/content/847/16
 
 [src]: https://www.acwing.com/problem/content/description/110/
 [n*n]: https://latex.codecogs.com/svg.latex?n%5Ctimes%20n
