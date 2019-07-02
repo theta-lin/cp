@@ -51,7 +51,8 @@
 [a_{2},a_{3},...,a_{n}]: https://latex.codecogs.com/svg.latex?a_%7B2%7D%2Ca_%7B3%7D%2C...%2Ca_%7Bn%7D
 [a_{1}]: https://latex.codecogs.com/svg.latex?a_%7B1%7D
 [b_{1}]: https://latex.codecogs.com/svg.latex?b_%7B1%7D
-[a_{1}=b_{1},a_{2}=b_{2},...,a_{i}=b_{i}]: https://latex.codecogs.com/svg.latex?a_%7B1%7D%3Db_%7B1%7D%2Ca_%7B2%7D%3Db_%7B2%7D%2C...%2Ca_%7Bi%7D%3Db_%7Bi%7D[a_{i+1}\neq b_{i+1}]: https://latex.codecogs.com/svg.latex?a_%7Bi+1%7D%5Cneq%20b_%7Bi+1%7D
+[a_{1}=b_{1},a_{2}=b_{2},...,a_{i}=b_{i}]: https://latex.codecogs.com/svg.latex?a_%7B1%7D%3Db_%7B1%7D%2Ca_%7B2%7D%3Db_%7B2%7D%2C...%2Ca_%7Bi%7D%3Db_%7Bi%7D
+[a_{i+1}\neq b_{i+1}]: https://latex.codecogs.com/svg.latex?a_%7Bi+1%7D%5Cneq%20b_%7Bi+1%7D
 [E(b_{i+1})\le E(a_{i+1})]: https://latex.codecogs.com/svg.latex?E%28b_%7Bi+1%7D%29%5Cle%20E%28a_%7Bi+1%7D%29
 [a_{i+2},a_{i+3},...,a_{n}]: https://latex.codecogs.com/svg.latex?a_%7Bi+2%7D%2Ca_%7Bi+3%7D%2C...%2Ca_%7Bn%7D
 [a_{i+1}]: https://latex.codecogs.com/svg.latex?a_%7Bi+1%7D
