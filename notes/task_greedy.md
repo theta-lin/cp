@@ -93,7 +93,7 @@ print(ans);
 
 ## ²Î¿¼×ÊÁÏ
 \[ref0\]: https://www.cnblogs.com/ruruozhenhao/p/7446216.html  
-\[ref1\]: https://blog.csdn.net/baidu_38304645/article/details/83818009
+\[ref1\]: https://blog.csdn.net/baidu_38304645/article/details/83818009  
 \[ref2\]: https://blog.csdn.net/C_13579/article/details/81940242
 
 [(S, E)]: https://latex.codecogs.com/svg.latex?%28S%2C%20E%29
@@ -114,5 +114,5 @@ print(ans);
 [b_{i+1}]: https://latex.codecogs.com/svg.latex?b_%7Bi+1%7D
 [src]: http://bailian.openjudge.cn/practice/3374/
 [ref0]: https://www.cnblogs.com/ruruozhenhao/p/7446216.html
-[ref1]: https://blog.csdn.net/baidu_38304645/article/details/83818009  
+[ref1]: https://blog.csdn.net/baidu_38304645/article/details/83818009
 [ref2]: https://blog.csdn.net/C_13579/article/details/81940242
