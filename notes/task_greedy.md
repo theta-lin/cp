@@ -61,7 +61,7 @@ sort(lotion, by_SPF);
 int ans = 0;
 for(int i = 1 to C)
 {
-	iterator it = lotion.lower_bound(cow[i].minSPF);  // 第一个SPF不小于minSPF的防晒霜
+	iterator it = lotion.lower_bound(cow[i].minSPF, by_SPF);  // 第一个SPF不小于minSPF的防晒霜
 	if (found && *it.SPF <= cow[i].maxSPF)
 	{  
 		++ans;
@@ -76,16 +76,16 @@ print(ans);
 ```  
 
 ### 对题解的思考
-我一开始的想法是将牛按照minSPF\_i从小到大排序，每次尽量选取最小可取的防晒霜。
+我一开始的想法是将牛按照minSPF从小到大排序，每次尽量选取最小可取的防晒霜。
 但是此时会有这样的问题：
 
 >A: &nbsp;&nbsp;&nbsp;--------------\*----------------\*--------  
->B: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------\*------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*  
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
+>B: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------\*------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*  
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2  
 >（横线代表牛的SPF范围，竖线代表防晒霜的SPF）  
->此时A的minSPF\_i小于B的minSPF\_i，所以A先选择防晒霜1，B就无防晒霜可以选用  
->而如果按照maxSPF\_i从小到大排序，则B先选择1，A仍可以选择2  
+>此时A的minSPF小于B的minSPF，所以A先选择防晒霜1，B就无防晒霜可以选用  
+>而如果按照maxSPF从小到大排序，B的maxSPF较小，则B先选择1，A仍可以选择2  
 
 **我目前想不出对这个题解严谨的证明**  
 **网络上还有一种用优先队列的解法**  
