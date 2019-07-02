@@ -16,9 +16,10 @@
 * [关于任务安排问题的贪心算法](./notes/task_greedy.md)
 
 # 比较喜欢的题解和文章
-* 崔添翼 [背包九讲](https://github.com/tianyicui/pack)  
-* Sumdiv：此题先套用因数和的公式，然后有两种解法。  
-          一是用二分求等比数列的和，二是用等比数列公式和逆元。  
+* 崔添翼 [背包九讲](https://github.com/tianyicui/pack)
+* Sumdiv：此题先套用因数和的公式，然后有两种解法。
+          一是用二分求等比数列的和，二是用等比数列公式和逆元。
   * acdreamers [逆元详解（通用公式，在模运算下的除法）](https://blog.csdn.net/acdreamers/article/details/8220787)
   * acdreamers（转自） [等比数列求和 二分思想](https://www.cnblogs.com/stranger-/p/8999382.html)
+* faojie [费解的开关](https://blog.csdn.net/ssl_zyc/article/details/81623774)
 
