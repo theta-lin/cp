@@ -22,4 +22,5 @@
   * acdreamers [逆元详解（通用公式，在模运算下的除法）](https://blog.csdn.net/acdreamers/article/details/8220787)
   * acdreamers（转自） [等比数列求和 二分思想](https://www.cnblogs.com/stranger-/p/8999382.html)
 * faojie [费解的开关](https://blog.csdn.net/ssl_zyc/article/details/81623774)
+* LLTYYC [关于货仓选址问题的方法及证明（在数轴上找一点使得该点到所有其他点的距离之和最小）](https://www.cnblogs.com/LLTYYC/p/9537677.html)
 
