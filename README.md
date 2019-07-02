@@ -12,4 +12,5 @@
 
 # 目录
 [奇数码问题](./notes/odd_puzzle.md)  
+[关于任务安排问题的贪心算法](./notes/task_greedy.md)
 
