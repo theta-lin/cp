@@ -48,7 +48,7 @@
 有C只牛，第i只牛有minSPF\_i，maxSPF\_i。  
 有L瓶防晒霜，第i瓶有SPF\_i，能覆盖cover\_i只牛。  
 只有当SPF不小于minSPF，且不大于max时，才能覆盖该只牛。  
-求最多能被覆盖的牛的数量
+求最多能被覆盖的牛的数量。
 
 ### 一种题解 [\[ref2\]][ref2]
 将牛按照maxSPF\_i从小到大排序，每次尽量选取最小可取的防晒霜。
@@ -114,5 +114,5 @@ print(ans);
 [b_{i+1}]: https://latex.codecogs.com/svg.latex?b_%7Bi+1%7D
 [src]: http://bailian.openjudge.cn/practice/3374/
 [ref0]: https://www.cnblogs.com/ruruozhenhao/p/7446216.html
-[ref1]: https://blog.csdn.net/baidu_38304645/article/details/83818009
+[ref1]: https://blog.csdn.net/baidu_38304645/article/details/83818009  
 [ref2]: https://blog.csdn.net/C_13579/article/details/81940242
