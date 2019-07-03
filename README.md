@@ -12,8 +12,10 @@
 有时我会直接引用别人文章内容，此内容的版权归属于原作者。
 
 # 目录
-* [奇数码问题](./notes/odd_puzzle.md)  
+* [奇数码问题](./notes/odd_puzzle.md)
 * [关于任务安排问题的贪心算法](./notes/task_greedy.md)
+  * [简单的任务安排](./notes/task_greedy.md#简单的任务安排ref0ref1)
+  * [Sunscreen](./notes/task_greedy.md#sunscreen)
 
 # 比较喜欢的题解和文章
 * 崔添翼 [背包九讲](https://github.com/tianyicui/pack)
@@ -23,4 +25,7 @@
   * acdreamers（转自） [等比数列求和 二分思想](https://www.cnblogs.com/stranger-/p/8999382.html)
 * faojie [费解的开关](https://blog.csdn.net/ssl_zyc/article/details/81623774)
 * LLTYYC [关于货仓选址问题的方法及证明（在数轴上找一点使得该点到所有其他点的距离之和最小）](https://www.cnblogs.com/LLTYYC/p/9537677.html)
+
+# 一些参考资料
+* C++参考手册 [cppreference.com](https://zh.cppreference.com)
 
