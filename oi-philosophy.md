@@ -224,6 +224,135 @@ $ \mathrm{next} $ 数组记录模式串  时最大的 $ j(0<=j<i,\mathrm{无匹�
 
 Catalan 数有多种意义，但是各种意义都有自己的优势和劣势，如用网格上的 DP 式（有 $ i $ 个入栈，$ j $ 个出栈的方案数）就丢失了__顺序信息__，难以表示具体是__哪一对__被匹配。
 
+# 求和/贡献转化
+
+_这些在很多地方都有应用，对推数学题的式子尤其有帮助。_
+
+## 维度分解
+
+$$
+\begin{align}
+  & \sum_{i = 1}^n \sum_{j = 1}^m f(i)g(j) \\
+= & \left[\sum_{i = 1}^n f(i) \right] \left[\sum_{j = 1}^m g(j) \right] \end{align}
+$$
+
+## 定义域-值域变换
+
+$$
+y= f(x), x \in X, y \in Y \\
+\begin{align}
+  & \sum_{x \in X} f(x) \\
+= & \sum_{y \in Y} y \sum_{x \in X} [f(x) = y]
+\end{align}
+$$
+
+# 数论
+
+_感谢 RSY 同志提供的帮助_
+
+## 质因数分解
+
+$$
+n = p_1^{a_1}p_2^{a_2}...p_k^{a_k}
+$$
+
+## 积性函数
+
+$$
+f(ab) = f(a)f(b)
+$$
+
+## 积性数论函数
+
+$$
+\begin{align}
+1(n) & = 1 \\
+\varepsilon(n) & = [n = 1] \\
+\mathrm{Id}(n) & = n \\
+d(n) & = \lvert \{d : d \mid n \} \rvert \\
+\sigma(n) & ={} \sum_{d \perp n} d \\
+\varphi(n) & ={} \lvert \{d : d < n,d \perp n \} \rvert = n \prod_{p \mid n}(1 - \frac{1}{p}), \varphi(p^k) = p^k - p^{k - 1} \\
+\mu(n) & = \begin{cases}
+        (-1)^k, \forall a_i = 1 \\
+        0, \exist a_i > 1 \\
+        \end{cases}
+\end{align}
+$$
+
+## 狄利克雷（Dirichlet）卷积
+
+$$
+(f * g)(n) = \sum_{d \mid n} f(d)g(\frac{n}{d})
+$$
+满足结合律，交换律，分配律，存在__单位元__ $ \varepsilon $。
+
+可以利用积性函数的性质，考虑 $ n $ 的每一个质因数，然后分别证明：
+$$
+\forall i, (f * g)(p_i^j) = \sum_{j = 0}^{a_i} f(p_i^j)g(p_i^{a_i - j})
+$$
+
+常见等式：
+$$
+\begin{align}	
+\varepsilon & = \mu * 1 \tag{1} \\
+g & = f * 1 \iff f = g * \mu \tag{2} \\
+\\
+\mathrm{Id} & = \varphi * 1 \tag{3} \\
+\varphi & = \mathrm{Id} * \mu \tag{4} \\
+\\
+d & = 1 * 1 \tag{5} \\
+\sigma & = \mathrm{Id} * 1 \tag{6} \\
+\sigma & = \varphi * d \tag{7} \\
+\mathrm{Id} & = \sigma * \mu \tag{8} \\
+\end{align}
+$$
+
+(1) 只考虑每个质因数出现一次或零次的情况，由 $ \sum_{i = 0}^k (-1)^i \binom{k}{i} = (1 + (-1))^k $ 得到。
+(2) 为__莫比乌斯反演__，在原式两侧同乘 $ \mu $ 可得反演后的式子。
+(3) 对于其中每一个质因数，由 $ \varphi(p^k) = p^k - p^{k - 1} $ 裂项和得到。
+(4) __常用性质__，由 (3) 莫比乌斯反演得到。
+(7) 由 (3),(5),(6) 得到。
+(8) 由 (6) 莫比乌斯反演得到。
+
+## 例：求 $ \sum_{i = 1}^n \sum_{j = 1}^m \gcd(i, j) $
+
+### 法一：
+
+路线：$ \varepsilon \Rarr \mu \Rarr \varphi$
+
+$$
+\begin{align}
+  & \sum_{i = 1}^n \sum_{j = 1}^m \gcd(i, j) \\
+= & \sum_{d = 1}^{\min(n, m)} d \sum_{i = 1}^n \sum_{j = 1}^m [\gcd(i, j) = d] \\
+= & \sum_{d = 1}^{\min(n, m)} d \sum_{i = 1}^{\left\lfloor \frac{n}{d} \right\rfloor} \sum_{j = 1}^{\left \lfloor \frac{m}{d} \right\rfloor} [\gcd(i, j) = 1] & \left(i \larr \frac{i}{d}, j \larr \frac{j}{d} \right) \\
+= & \sum_{d = 1}^{\min(n, m)} d \sum_{i = 1}^{\left\lfloor \frac{n}{d} \right\rfloor} \sum_{j = 1}^{\left \lfloor \frac{m}{d} \right\rfloor} \varepsilon[\gcd(i, j)] \\
+= & \sum_{d = 1}^{\min(n, m)} d \sum_{i = 1}^{\left\lfloor \frac{n}{d} \right\rfloor} \sum_{j = 1}^{\left \lfloor \frac{m}{d} \right\rfloor} \sum_{u \mid \gcd(i, j)} \mu(u) \cdot 1\left(\frac{\gcd(i, j)}{u}\right) \\
+= & \sum_{d = 1}^{\min(n, m)} d \sum_{i = 1}^{\left\lfloor \frac{n}{d} \right\rfloor} \sum_{j = 1}^{\left \lfloor \frac{m}{d} \right\rfloor} \sum_{u \mid i, u \mid j} \mu(u) & (u \mid i, u \mid j \iff u \mid \gcd(i, j)) \\
+= & \sum_{d = 1}^{\min(n, m)} d \sum_{u = 1}^{\min\left(\left\lfloor \frac{n}{d} \right\rfloor, \left \lfloor \frac{m}{d} \right\rfloor \right)} \mu(u) \sum_{i = 1}^{\left\lfloor \frac{n}{ud} \right\rfloor} \sum_{j = 1}^{\left \lfloor \frac{m}{ud} \right\rfloor} 1 & \left(i \larr \frac{i}{u}, j \larr \frac{j}{u}; \left\lfloor \frac{\left\lfloor \frac{a}{b} \right\rfloor}{c} \right\rfloor = \left\lfloor \frac{a}{bc} \right\rfloor \right) \\
+= & \sum_{d = 1}^{\min(n, m)} d \sum_{u = 1}^{\min\left(\left\lfloor \frac{n}{d} \right\rfloor, \left \lfloor \frac{m}{d} \right\rfloor\right)} \mu(u) \left\lfloor \frac{n}{ud} \right\rfloor \left \lfloor \frac{m}{ud} \right\rfloor \\
+= & \sum_{d = 1}^{\min(n, m)} d \sum_{\frac{T}{d} = 1}^{\min(n, m)} \mu\left(\frac{T}{d}\right) \left\lfloor \frac{n}{T} \right\rfloor \left \lfloor \frac{m}{T} \right\rfloor & (T \larr ud) \tag{*} \\
+= & \sum_{T = 1}^{\min(n, m)} \sum_{d \mid T} \mu\left(\frac{T}{d} \right) \cdot 1(d) \left\lfloor \frac{n}{T} \right\rfloor \left \lfloor \frac{m}{T} \right\rfloor \\
+= & \sum_{T = 1}^{\min(n, m)} \varphi(T) \left\lfloor \frac{n}{T} \right\rfloor \left \lfloor \frac{m}{T} \right\rfloor
+\end{align}
+$$
+
+注意 (\*) 处凑卷积的一个小技巧，更一般来说：将枚举两个因数转变为枚举它们的积和其中一个因数。
+
+### 法二：
+
+路线：$ \mathrm{Id} \Rarr \varphi $
+
+$$
+\begin{align}
+  & \sum_{i = 1}^n \sum_{j = 1}^m \gcd(i, j) \\
+= & \sum_{i = 1}^n \sum_{j = 1}^m \mathrm{Id}[\gcd(i, j)] \\
+= & \sum_{i = 1}^n \sum_{j = 1}^m \sum_{d \mid \gcd(i, j)} \varphi(d) \\
+= & \sum_{d = 1}^{\min(n, m)} \varphi(d) \left\lfloor \frac{n}{d} \right\rfloor \left \lfloor \frac{m}{d} \right\rfloor
+\end{align}
+$$
+
+总结：法二更加简单，但是需要直接对函数本身直接卷积，这有时难以做到。
+
 # 双重缓存
 
 当一系列元素需要“同时”贡献对方，并造成__相互作用__时，就应进行双重缓存，例如分层图中每一层同时向下一层拓展时，此时应该：
