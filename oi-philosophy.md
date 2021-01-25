@@ -367,6 +367,17 @@ $$
 
 总结：法二更加简单，但是需要直接对函数本身直接卷积，这依赖于给定函数的性质和在式子中的位置，使这种办法有时难以使用。
 
+## 杜教筛
+
+$$
+\begin{align}
+\sum_{i = 1}^n (f * g)(i) =& \sum_{i = 1}^n \sum_{j \mid i} f(j)g\left(\frac{i}{j} \right) \\
+\sum_{i = 1}^n (f * g)(i) =& \sum_{i = 1}^n g(i) \sum_{j = 1}^{\left\lfloor \frac{n}{i} \right\rfloor} f\left(j \right) \\
+\sum_{i = 1}^n (f * g)(i) =& \sum_{i = 1}^n g(i) S\left(\left\lfloor \frac{n}{i} \right\rfloor \right) & \left(S(n) = \sum_{i = 1}^n f(i) \right) \\
+g(1)S(n) =& \sum_{i = 1}^n (f * g)(i) - \sum_{i = 2}^n g(i) S\left(\left\lfloor \frac{n}{i} \right\rfloor \right)
+\end{align}
+$$
+
 # 双重缓存
 
 当一系列元素需要“同时”贡献对方，并造成__相互作用__时，就应进行双重缓存，例如分层图中每一层同时向下一层拓展时，此时应该：
