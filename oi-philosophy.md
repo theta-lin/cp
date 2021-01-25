@@ -249,6 +249,17 @@ $$
 这种变换的基础一般是变换后第二个求和的范围很小，甚至可以常数时间内求和。
 其同样适用于多元函数，如枚举 $ \gcd $ 的值。
 
+## 前缀和
+
+$$
+\begin{align}
+  & \sum_{i = a}^b f(i) \\
+= & \sum_{i = 1}^b f(i) - \sum_{i = 1}^{a - 1} f(i)
+\end{align}
+$$
+
+注意其在数论中可用于解决边界比较麻烦的问题。
+
 # 数论
 
 _感谢 RSY 同志提供的帮助_
@@ -276,8 +287,8 @@ d(n) & = \lvert \{d : d \mid n \} \rvert \\
 \sigma(n) & ={} \sum_{d \perp n} d \\
 \varphi(n) & ={} \lvert \{d : d < n,d \perp n \} \rvert = n \prod_{p \mid n}(1 - \frac{1}{p}), \varphi(p^k) = p^k - p^{k - 1} \\
 \mu(n) & = \begin{cases}
-        (-1)^k, \forall a_i = 1 \\
-        0, \exist a_i > 1 \\
+        (-1)^k, \forall a_i = 1 , \\
+        0, \exist a_i > 1 . \\
         \end{cases}
 \end{align}
 $$
@@ -310,7 +321,7 @@ d & = 1 * 1 \tag{5} \\
 \end{align}
 $$
 
-(1) 只考虑每个质因数出现一次或零次的情况，由 $ \sum_{i = 0}^k (-1)^i \binom{k}{i} = (1 + (-1))^k $ 得到。
+(1) 只考虑每个质因数出现一次或零次的情况，由 $ \sum_{i = 0}^k (-1)^i \binom{k}{i} = (1 + (-1))^k $（此处 $ 0^0 = 1 $ ）得到。
 (2) 为__莫比乌斯反演__，在原式两侧同乘 $ \mu $ 可得反演后的式子。
 (3) 对于其中每一个质因数，由 $ \varphi(p^k) = p^k - p^{k - 1} $ 裂项和得到。
 (4) __常用性质__，由 (3) 莫比乌斯反演得到。
