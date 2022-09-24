@@ -1,117 +1,45 @@
-// 5186
+// Connected, exactly two odd vertices
 
-#include <cstdio>
-#include <cstring>
+int head[100010], ver[1000010], Next[1000010], tot;
+int stack[1000010], ans[1000010];
+bool vis[1000010];
+int n, m, top, t;
 
-int       n, m;
-const int maxN  (400000 + 10);
-int       to    [maxN];
-int       pre   [maxN];
-int       last  [maxN];
-int       degree[maxN];
-int       visit [maxN];
-
-int lastEdge;
-void addEdge(int u, int v)
+void add(int x, int y)
 {
-	++lastEdge;
-	to[lastEdge] = v;
-	pre[lastEdge] = last[u];
-	last[u] = lastEdge;
+	ver[++tot] = y, Next[tot] = head[x], head[x] = tot;
 }
 
-bool dfs(int v, int pred, int cut)
+void euler()
 {
-	//printf("!%d\n", v);
-	if (v == cut) return true;
-	if (visit[v]) return false;
-	visit[v] = true;
-
-	for (int e(last[v]); e; e = pre[e])
+	stack[++top] = 1;
+	while (top > 0)
 	{
-		if (to[e] != pred)
+		int x = stack[top], i = head[x];
+		while (i && vis[i]) i = Next[i];
+		if (i)
 		{
-			if (!dfs(to[e], v, cut))
-			{
-				return false;
-			}
+			stack[++top] = ver[i];
+			vis[i] = vis[i ^ 1] = true;
+			head[x] = Next[i];
+		}
+		else
+		{
+			--top;
+			ans[++t] = x;
 		}
 	}
-
-	return true;
-}
-
-bool check(int cut)
-{
-	//printf("check: %d\n", cut);
-
-	memset(visit, false, sizeof(visit));
-	for (int v(1); v <= n; ++v)
-	{
-		if (!visit[v])
-		{
-			if (!dfs(v, 0, cut))
-			{
-				return false;
-			}
-		}
-	}
-
-	return true;
 }
 
 int main()
 {
-	int T;
-	scanf("%d", &T);
-
-	for (int ttt(1); ttt <= T; ++ttt)
+	cin >> n >> m;
+	tot = 1;
+	for (int i = 1; i <= m; ++i)
 	{
-		scanf("%d %d", &n, &m);
-		lastEdge = 0;
-		memset(last, 0, sizeof(last));
-		memset(degree, 0, sizeof(degree));
-		for (int e(1); e <= m; ++e)
-		{
-			int u, v;
-			scanf("%d %d", &u, &v);
-			addEdge(u, v);
-			addEdge(v, u);
-			++degree[u];
-			++degree[v];
-		}
-
-		int cnt(0), max(0);
-		for (int v(1); v <= n; ++v)
-		{
-			if (degree[v] % 2 == 1)
-			{
-				++cnt;
-			}
-			if (degree[v] > degree[max])
-			{
-				max = v;
-			}
-		}
-
-		bool exist(false);
-		if (cnt <= 2)
-		{
-			for (int v(1); v <= n; ++v)
-			{
-				if ((cnt && degree[v] % 2 == 1) || (!cnt && v == max))
-				{
-					if (check(v))
-					{
-						exist = true;
-						break;
-					}
-				}
-			}
-		}
-
-		puts(exist ? "YES" : "NO");
+		int x, y; scanf("%d%d", &x, &y);
+		add(x, y), add(y, x);
 	}
-
-	return 0;
+	euler();
+	for (int i = t; i; --i) printf("%d\n", ans[i]);
 }
