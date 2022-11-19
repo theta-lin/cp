@@ -12,7 +12,6 @@ int newNode;
 
 int insert(int index, int pos, int node)
 {
-	///std::cout << index << ' ' << (sum[index] >> pos & 1) << ' ' << pos << ' ' << node << std::endl;
 	int currentNode(++newNode);
 	if (pos < 0)
 	{
@@ -24,14 +23,12 @@ int insert(int index, int pos, int node)
 	trie[currentNode][digit] = insert(index, pos - 1, trie[node][digit]);
 	trie[currentNode][digit ^ 1] = trie[node][digit ^ 1];
 	end[currentNode] = std::max(end[trie[currentNode][0]], end[trie[currentNode][1]]);
-	//std::cout << '!' << digit << '*' << currentNode << ':' << trie[currentNode][digit] << ' ' << trie[currentNode][digit ^ 1] << "^^^" << end[currentNode] << std::endl;
 	return currentNode;
 }
 
 int query(int value, int pos, int limit, int node)
 {
 	int digit((value >> pos) & 1);
-	//std::cout << digit << ' ' << pos << ' ' << node << ' ' << limit << ' ' << end[trie[node][digit ^ 1]] << std::endl;
 	if (pos < 0)
 		return sum[end[node]] ^ value;
 	if (end[trie[node][digit ^ 1]] >= limit)
@@ -53,7 +50,6 @@ int main()
 		std::cin >> x;
 		sum[i] = sum[i - 1] ^ x;
 		root[i] = insert(i, 23, root[i - 1]);
-		//std::cout << '!' << root[i] << std::endl << std::endl;
 	}
 
 	for (int i(1); i <= M; ++i)
