@@ -127,7 +127,6 @@ void find(const Bitset &bs, int x, int y, int &xp, int &yp)
 	yp = y;
 	while (xp < n && bs(xp, yp))
 	{
-		//printf("$$$$$$ %d, %d\n", xp, yp);
 		if (yp < m - 1)
 		{
 			++yp;
@@ -142,20 +141,7 @@ void find(const Bitset &bs, int x, int y, int &xp, int &yp)
 
 long long dfs(const Bitset &state, int x, int y)
 {
-	/*printf("!%d, %d\n", x, y);
-	for (int i(0); i < n; ++i)
-	{
-		for (int j(0); j < m; ++j)
-		{
-			printf("%d", int(state(i, j)));
-		}
-		printf("\n");
-	}
-	printf("\n");
-	system("pause");//*/
-
 	int id(hashFind(state));
-	//printf("%d\n", id);
 
 	if (used[id])
 	{
@@ -166,7 +152,6 @@ long long dfs(const Bitset &state, int x, int y)
 
 	if (x == n)
 	{
-		//printf("!!!!!! %d\n", int(state.data().count()));
 		mem[id] = (int(state.data().count()) == n * m);
 	}
 	else
@@ -190,24 +175,6 @@ long long dfs(const Bitset &state, int x, int y)
 
 int main()
 {
-	/*n = 4;
-	m = 8;
-	for (int i(0); i < typeCnt; ++i)
-	{
-		Bitset bs;
-		toggle(bs, 0, m / 2 - 1, i);
-		printf("***%d***\n", i);
-		for (int j(0); j < n; ++j)
-		{
-			for (int k(0); k < m; ++k)
-			{
-				printf("%d", int(bs(j, k)));
-			}
-			printf("\n");
-		}
-		printf("\n");
-	} //*/
-
 	scanf("%d %d", &n, &m);
 	Bitset empty;
 	for (int i(0); i < n; ++i)
