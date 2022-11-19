@@ -17,17 +17,20 @@ void build(std::string &pat)
 	}
 }
 
-void find(std::string &str, std::string &pat)
+int find(std::string &str, std::string &pat)
 {
+	int cnt{0};
 	for (int i{0}, j{-1}; i < str.length(); ++i)
 	{
-		while (j >= 0 && (j == pat.length() - 1 || str[i] != str[j + 1]))
+		while (j >= 0 && (j == pat.length() - 1 || str[i] != pat[j + 1]))
 		{
 			j = fail[j];
 		}
-		if (str[i] == str[j + 1]) ++j;
+		if (str[i] == pat[j + 1]) ++j;
 		match[i] = j;
+		if (j == pat.length() - 1) ++cnt;
 	}
+	return cnt;
 }
 
 int main()
