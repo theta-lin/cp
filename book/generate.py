@@ -11,7 +11,7 @@ with open('book.tex', 'w') as out:
     file_names = glob.glob("../src/*")
     for file_name in file_names:
         out.write('\\section{')
-        out.write(os.path.basename(file_name).replace('_', '\\_'))
+        out.write(os.path.basename(file_name)[: -4].replace('_', ' ').capitalize())
         out.write('}\n')
 
         out.write('\\inputminted[breaklines=true]{cpp}{')
