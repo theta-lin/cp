@@ -52,17 +52,6 @@ int main()
 		if (i & T)
 			mult(ans, map, ans);
 		mult(map, map, map);
-
-		/*for (int ii(1); ii <= N * 9; ++ii)
-		{
-			for (int j(1); j <= N * 9; ++j)
-			{
-				std::cout << map[ii][j] << ' ';
-			}
-			std::cout << std::endl;
-		}*/
-		//std::cout << i << ' ' << T << std::endl;
-		//system("pause");
 	}
 
 	std::cout << ans[0 * 9 + 1][(N - 1) * 9 + 1] << std::endl;
