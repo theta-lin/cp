@@ -1,6 +1,8 @@
 *
 !.gitignore
 !*.md
-!src/*
+!src
+!src/*.cpp
+!book
 !book/*.py
 !book/*.pdf
