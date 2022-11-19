@@ -88,7 +88,7 @@ void topoSort()
 	{
 		ans += state[queue.front()].count();
   		state[queue.front()].set(queue.front());
-  		//std::cout << queue.front() << ' ' << state[queue.front()].to_string() << '\n';
+
 		for (int i(last[queue.front()]); i != -1; i = pre[i])
 		{
 			if (deg[to[i]] > 0)
@@ -127,7 +127,6 @@ int main()
 	dijkstra();
 	init();
 	topoSort();
-	//dfs(n, 1);
 
 	printf("%lld\n", ans);
 	return 0;
