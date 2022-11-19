@@ -20,9 +20,6 @@ bool      matched[maxN];
 
 std::vector<int> sorted;
 
-//char unmap[maxCh];
-//std::string str[maxN];
-
 int N, M;
 
 int lastNode(0);
@@ -34,7 +31,6 @@ void insert(int index)
 		if (!ch)
 		{
 			ch = ++lastNode;
-			//str[ch] = str[node] + unmap[pattern[index][i]];
 		}
 		node = ch;
 	}
@@ -76,17 +72,6 @@ void match()
 	{
 		node = child[node][orig[i]];
 		matched[node] = true;
-		/*std::cout << "---\n";
-		for (int k(1); k <= i; ++k)
-		{
-			printf("%c", unmap[orig[k]]);
-		}
-		printf("\n");
-		for (int k(1); k <= i - int(str[node].length()); ++k)
-		{
-			printf(" ");
-		}
-		std::cout << str[node] << '\n'; //*/
 	}
 
 	for (int i(lastNode); i >= 0; --i)
@@ -102,11 +87,6 @@ int main()
 	map[int('S')] = 2;
 	map[int('W')] = 3;
 	map[int('N')] = 4;
-
-	/*unmap[1] = 'E';
-	unmap[2] = 'S';
-	unmap[3] = 'W';
-	unmap[4] = 'N';//*/
 
 	scanf("%d %d", &N, &M);
 	scanf("%s", in + 1);
@@ -126,13 +106,7 @@ int main()
 	}
 
 	build();
-
 	match();
-
-	/*for (int i(0); i <= lastNode; ++i)
-	{
-		std::cout << i << ' ' << fail[i] << ": " << str[i] << ' ' << str[fail[i]] << '\n';
-	}//*/
 
 	for (int i(1); i <= M; ++i)
 	{
