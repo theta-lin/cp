@@ -6,7 +6,6 @@
 
 int n;
 const int maxN(131072);
-//const int maxN(5000);
 char op[16];
 bool test(false);
 
@@ -30,10 +29,6 @@ public:
 
 void Segtree::pushDown(int node, int left, int right)
 {
-	//if (left == right)
-	//if (node >= 2 * n)
-	//	std::cout << node << ' ' << left << ' ' << right <<  '\n';
-	//std::cout << "!!!" << opInstall << ' ' << opUninstall << '\n';
 	if (lazy[node] == opInstall)
 	{
 		lazy[node] = 0;
@@ -65,7 +60,6 @@ void Segtree::pushUp(int node)
 
 int Segtree::install(int node, int left, int right, int oLeft, int oRight)
 {
-	//std::cout << "###" << left << '-' << right << ' ' << lazy[node] << ' ' << count[24] << '\n';
 	pushDown(node, left, right);
 	int sum(0);
 	if (left >= oLeft && right <= oRight)
@@ -82,14 +76,12 @@ int Segtree::install(int node, int left, int right, int oLeft, int oRight)
 		if (oRight >= mid + 1) sum += install(node * 2 + 1, mid + 1, right, oLeft, oRight);
 		pushUp(node);
 	}
-	//std::cout << "INSTALL: " << left << '-' << right << ' ' << oLeft << '-' << oRight << ' ' << count[node] << ' ' << sum << '\n';
 	return sum;
 }
 
 int Segtree::uninstall(int node, int left, int right, int oLeft, int oRight)
 {
 	pushDown(node, left, right);
-	//std::cout << "UNINSTALL: " << left << '-' << right << ' ' << oLeft << '-' << oRight << ' ' << count[node] << '\n';
 	int sum(0);
 	if (left >= oLeft && right <= oRight)
 	{
@@ -197,9 +189,6 @@ int uninstall(int v)
 
 int main()
 {
-	//freopen("manager.in", "r", stdin);
-	//freopen("manager.out", "w", stdout);
-
 	scanf("%d", &n);
 	for (int v(1); v <= n - 1; ++v)
 	{
@@ -211,9 +200,6 @@ int main()
 	memset(heavy, -1, sizeof(heavy));
 	dfsInfo(0, -1, 0);
 	dfsChain(0, 0);
-
-	//for (int v(0); v <= n - 1; ++v)
-	//	std::cout << v << "->" << dfn[v] << '\n';
 
 	int q;
 	scanf("%d", &q);
