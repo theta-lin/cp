@@ -104,9 +104,6 @@ bool SPFA(int S, int T)
 
 int main()
 {
-	// freopen("pig.in", "r", stdin);
-	// freopen("pig.out", "w", stdout);
-
 	int n;
 	scanf("%d", &n);
 	for (int i(1); i <= n; ++i)
